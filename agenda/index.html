@@ -1,1 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/webp" href="favicon.webp">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendar Cita — Odontología Láser Bogotá | DoctorLáser</title>
+<meta name="description" content="Agenda tu consulta de valoración con la Dra. Ana Vinasco. Odontología láser en Bogotá. Respuesta el mismo día por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.contact-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:3rem; align-items:start; }
+@media(max-width:800px){ .contact-grid { grid-template-columns:1fr; } }
+.form-card {
+background:var(--c-white);
+border:1px solid var(--c-n100);
+border-radius:var(--radius-xl);
+padding:2.25rem;
+box-shadow:var(--shadow-md);
+}
+.form-field { margin-bottom:1.25rem; }
+.form-label {
+display:block; font-size:13px; font-weight:500;
+color:var(--c-n700); margin-bottom:.4rem;
+}
+.form-label span { color:var(--c-p500); margin-left:2px; }
+.form-input {
+width:100%; padding:.7rem 1rem;
+border:1px solid var(--c-n200);
+border-radius:var(--radius-md);
+font-family:var(--font-body);
+font-size:14px; color:var(--c-n800);
+background:var(--c-white);
+transition:border-color var(--dur-fast), box-shadow var(--dur-fast);
+outline:none;
+}
+.form-input:focus {
+border-color:var(--c-p400);
+box-shadow:0 0 0 3px rgba(29,158,117,.12);
+}
+textarea.form-input { resize:vertical; min-height:100px; }
+select.form-input { cursor:pointer; appearance:none;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%236B8C7D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+background-repeat:no-repeat; background-position:right .75rem center; padding-right:2.5rem;
+}
+.form-submit {
+width:100%; padding:.85rem;
+background:#25D366; color:var(--c-white);
+border:none; border-radius:var(--radius-pill);
+font-size:15px; font-weight:500;
+cursor:pointer; display:flex; align-items:center;
+justify-content:center; gap:.6rem;
+transition:background var(--dur-fast), transform var(--dur-fast), box-shadow var(--dur-fast);
+box-shadow:0 2px 16px rgba(37,211,102,.3);
+font-family:var(--font-body);
+}
+.form-submit:hover { background:#1fbd5c; transform:translateY(-2px); box-shadow:0 6px 24px rgba(37,211,102,.4); }
+.form-submit i { font-size:20px; }
+.form-note { font-size:12px; color:var(--c-n400); text-align:center; margin-top:.75rem; }
+.wa-direct {
+background:linear-gradient(135deg,#1A5C38,#25803D);
+border-radius:var(--radius-xl);
+padding:2rem;
+color:var(--c-white);
+display:flex; flex-direction:column; gap:1.25rem;
+}
+.wa-direct__icon { font-size:40px; color:#7DDD9B; }
+.wa-direct__title { font-family:var(--font-display); font-size:1.6rem; font-weight:400; line-height:1.2; }
+.wa-direct__sub { font-size:14px; color:rgba(255,255,255,.65); line-height:1.65; }
+.wa-direct__btn {
+display:inline-flex; align-items:center; gap:.6rem;
+background:var(--c-white); color:#1A5C38;
+font-size:14px; font-weight:500;
+padding:.7rem 1.4rem; border-radius:var(--radius-pill);
+width:fit-content;
+transition:transform var(--dur-fast), box-shadow var(--dur-fast);
+}
+.wa-direct__btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.2); }
+.wa-direct__btn i { font-size:18px; }
+.info-tiles { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem; }
+.info-tile {
+background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15);
+border-radius:var(--radius-md); padding:1rem;
+}
+.info-tile__label { font-size:11px; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.1em; margin-bottom:.3rem; }
+.info-tile__value { font-size:14px; color:var(--c-white); font-weight:400; line-height:1.5; }
+.info-tile i { font-size:20px; color:rgba(255,255,255,.5); margin-bottom:.4rem; display:block; }
+.process-card {
+background:var(--c-white);
+border:1px solid var(--c-n100);
+border-radius:var(--radius-xl);
+padding:2rem 2.25rem;
+}
+.process-step {
+display:flex; gap:1.25rem; align-items:flex-start;
+padding:1.25rem 0;
+border-bottom:1px solid var(--c-n100);
+}
+.process-step:last-child { border-bottom:none; padding-bottom:0; }
+.ps-num {
+width:36px; height:36px; flex-shrink:0;
+background:var(--c-p50); border:1px solid var(--c-p200);
+border-radius:50%; display:flex; align-items:center; justify-content:center;
+font-family:var(--font-display); font-size:16px;
+color:var(--c-p700); font-weight:500; margin-top:2px;
+}
+.ps-body {}
+.ps-title { font-size:15px; font-weight:500; color:var(--c-n800); margin-bottom:.3rem; }
+.ps-text { font-size:13.5px; color:var(--c-n500); line-height:1.65; }
+.map-embed {
+width:100%; border-radius:var(--radius-lg);
+overflow:hidden; border:1px solid var(--c-n100);
+background:var(--c-n100);
+}
+.map-embed iframe {
+width:100%; height:260px; border:0; display:block;
+}
+.hours-grid {
+display:grid; grid-template-columns:1fr 1fr;
+gap:.5rem; margin-top:.75rem;
+}
+.hours-row {
+display:flex; justify-content:space-between;
+font-size:13px; padding:.4rem 0;
+border-bottom:1px solid var(--c-n100);
+}
+.hours-row .day { color:var(--c-n600); }
+.hours-row .time { color:var(--c-n800); font-weight:500; }
+.hours-row.closed .time { color:var(--c-n400); font-weight:400; }
 
+/* Grids responsivos para FAQ y Doctora */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .faq-grid > .fade-up:first-child {
+    position: static !important;
+  }
+}
+
+.doctora-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  max-width: 780px;
+  margin: 0 auto;
+}
+@media (max-width: 480px) {
+  .doctora-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .doctora-grid > div:first-child {
+    margin: 0 auto;
+  }
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="main-nav"></nav>
+<div id="wa-float" class="wa-float"></div>
+
+<main>
+<!-- HERO -->
+<section class="hero hero--compact">
+  <div class="hero__bg" style="background-image:url('Doctora-Luminadent.webp');background-position:center top"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <div class="hero__tag fade-up">
+      <i class="ti ti-calendar-check"></i>
+      Respuesta el mismo día
+    </div>
+    <h1 class="hero__title fade-up delay-1">
+      Agenda tu consulta<br><em>de valoración</em>
+    </h1>
+    <p class="hero__sub fade-up delay-2">
+      En la valoración la Dra. Ana Vinasco evalúa tu caso, determina si hay indicación láser y te entrega un plan de tratamiento con costos reales. Sin presión. Sin compromisos.
+    </p>
+    <div class="hero__actions fade-up delay-3">
+      <a href="#contacto" class="btn btn--primary btn--lg">
+        <i class="ti ti-arrow-down"></i>
+        Ir al formulario
+      </a>
+      <a href="#proceso" class="btn btn--outline btn--lg">¿Cómo funciona?</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMESA -->
+<section class="section--sm" style="background:var(--c-p900)">
+  <div class="container">
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:2rem" class="fade-up">
+      <div style="display:flex;align-items:center;gap:.75rem;color:rgba(255,255,255,.75);font-size:14px">
+        <i class="ti ti-clock" style="font-size:22px;color:var(--c-p400)"></i>
+        Respondemos en el mismo día
+      </div>
+      <div style="display:flex;align-items:center;gap:.75rem;color:rgba(255,255,255,.75);font-size:14px">
+        <i class="ti ti-file-description" style="font-size:22px;color:var(--c-p400)"></i>
+        Plan de tratamiento por escrito
+      </div>
+      <div style="display:flex;align-items:center;gap:.75rem;color:rgba(255,255,255,.75);font-size:14px">
+        <i class="ti ti-cash" style="font-size:22px;color:var(--c-p400)"></i>
+        Costos reales en la consulta
+      </div>
+      <div style="display:flex;align-items:center;gap:.75rem;color:rgba(255,255,255,.75);font-size:14px">
+        <i class="ti ti-heart-handshake" style="font-size:22px;color:var(--c-p400)"></i>
+        Sin presión para agendar
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <div class="eyebrow section-header__eyebrow">3 pasos simples</div>
+      <div class="section-divider section-divider--center"></div>
+      <h2 class="section-header__title">¿Cómo funciona<br><em>el proceso?</em></h2>
+    </div>
+    <div style="max-width:640px;margin:0 auto" class="fade-up">
+      <div class="process-card">
+        <div class="process-step">
+          <div class="ps-num">1</div>
+          <div class="ps-body">
+            <div class="ps-title">Escríbenos o llena el formulario</div>
+            <div class="ps-text">Cuéntanos brevemente qué te molesta o qué quieres mejorar. Si tienes fotos de tu caso, compártelas — nos ayudan a orientar la consulta y darte una primera impresión antes de venir.</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num">2</div>
+          <div class="ps-body">
+            <div class="ps-title">Valoración clínica presencial con la Dra. Ana</div>
+            <div class="ps-text">Revisamos tu historial médico completo, evaluamos tu caso clínicamente y determinamos si hay indicación para tratamiento láser. Te explicamos qué procedimiento aplica y por qué — o por qué no, si ese es el caso.</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num">3</div>
+          <div class="ps-body">
+            <div class="ps-title">Decides con información completa</div>
+            <div class="ps-text">Saldrás de la valoración con un diagnóstico claro, un plan de tratamiento por escrito y los costos reales. No hay presión. Tomas la decisión con el tiempo que necesites.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO PRINCIPAL -->
+<section id="contacto" class="bg-light">
+  <div class="container">
+    <div class="section-header section-header--center fade-up">
+      <div class="eyebrow section-header__eyebrow">Contacto</div>
+      <div class="section-divider section-divider--center"></div>
+      <h2 class="section-header__title">Elige cómo<br><em>prefieres contactarnos</em></h2>
+    </div>
+    <div class="contact-grid fade-up">
+
+      <!-- FORMULARIO -->
+      <div>
+        <p style="font-size:13px;color:var(--c-n500);margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem">
+          <i class="ti ti-mail" style="color:var(--c-p500)"></i>
+          Formulario de contacto — respuesta por WhatsApp o correo
+        </p>
+        <div class="form-card">
+          <div class="form-field">
+            <label class="form-label">Nombre <span>*</span></label>
+            <input type="text" class="form-input" placeholder="Tu nombre completo">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div class="form-field">
+              <label class="form-label">Teléfono <span>*</span></label>
+              <input type="tel" class="form-input" placeholder="+57 300 000 0000">
+            </div>
+            <div class="form-field">
+              <label class="form-label">Correo electrónico</label>
+              <input type="email" class="form-input" placeholder="tu@correo.com">
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label">¿Qué tratamiento te interesa? <span>*</span></label>
+            <select class="form-input">
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option>Blanqueamiento dental con láser</option>
+              <option>Gingivoplastia (rediseño de encías)</option>
+              <option>Fotobiomodulación — PBM</option>
+              <option>Desensibilización dental</option>
+              <option>Frenilectomía</option>
+              <option>Terapia para bruxismo</option>
+              <option>Terapia para parálisis facial</option>
+              <option>Desinfección de conductos</option>
+              <option>Desinfección de bolsas periodontales</option>
+              <option>No sé cuál necesito — quiero orientación</option>
+              <option>Otro procedimiento</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Cuéntanos tu caso brevemente</label>
+            <textarea class="form-input" placeholder="¿Qué te molesta? ¿Hace cuánto? ¿Has tenido algún tratamiento antes?"></textarea>
+          </div>
+          <div class="form-field" style="display:flex;align-items:flex-start;gap:.6rem">
+            <input type="checkbox" id="privacidad" style="margin-top:3px;accent-color:var(--c-p500);cursor:pointer">
+            <label for="privacidad" style="font-size:12px;color:var(--c-n500);cursor:pointer;line-height:1.6">
+              Acepto el tratamiento de mis datos personales para el proceso de agendamiento. Tus datos no serán compartidos con terceros.
+            </label>
+          </div>
+          <button type="button" class="form-submit" onclick="sendWhatsApp()">
+            <i class="ti ti-brand-whatsapp"></i>
+            Enviar por WhatsApp
+          </button>
+          <p class="form-note">
+            <i class="ti ti-shield-lock" style="vertical-align:-2px;margin-right:3px"></i>
+            Tus datos son seguros. Solo los usamos para gestionar tu cita.
+          </p>
+        </div>
+      </div>
+
+      <!-- WHATSAPP DIRECTO + INFO -->
+      <div style="display:flex;flex-direction:column;gap:1.5rem">
+        <div class="wa-direct">
+          <i class="ti ti-brand-whatsapp wa-direct__icon"></i>
+          <h3 class="wa-direct__title">O escríbenos<br><em>directamente</em></h3>
+          <p class="wa-direct__sub">La forma más rápida. Un toque y estás en conversación con el consultorio. Respondemos en el mismo día en horario de atención.</p>
+          <a href="https://wa.me/573015666729?text=Hola%2C%20quiero%20agendar%20una%20consulta%20de%20valoraci%C3%B3n%20en%20DoctorL%C3%A1ser%20%F0%9F%98%8A" target="_blank" rel="noopener" class="wa-direct__btn">
+            <i class="ti ti-brand-whatsapp"></i>
+            Abrir WhatsApp ahora
+          </a>
+          <div class="info-tiles">
+            <div class="info-tile">
+              <i class="ti ti-map-pin"></i>
+              <div class="info-tile__label">Ubicación</div>
+              <div class="info-tile__value">Cra. 7 Bis #124-56<br><span style="color:rgba(255,255,255,.65);font-size:12px">Chapinero, Bogotá</span></div>
+            </div>
+            <div class="info-tile">
+              <i class="ti ti-brand-whatsapp"></i>
+              <div class="info-tile__label">WhatsApp</div>
+              <div class="info-tile__value">+57 301 5666729<br><span style="color:rgba(255,255,255,.55);font-size:12px">Respuesta mismo día</span></div>
+            </div>
+            <div class="info-tile">
+              <i class="ti ti-clock"></i>
+              <div class="info-tile__label">Atención</div>
+              <div class="info-tile__value">Lun–Vie y Sábados<br><span style="color:rgba(255,255,255,.55);font-size:12px">Citas con previa agenda</span></div>
+            </div>
+            <div class="info-tile">
+              <i class="ti ti-mail"></i>
+              <div class="info-tile__label">Correo</div>
+              <div class="info-tile__value">info@doctoralaser.com</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAPA -->
+        <div>
+          <p style="font-size:13px;color:var(--c-n600);font-weight:500;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem">
+            <i class="ti ti-map-2" style="color:var(--c-p500)"></i>
+            Cra. 7 Bis #124-56, Chapinero, Bogotá
+          </p>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4898!2d-74.0479!3d4.6776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a6e!2sCra.%207%20Bis%20%23124-56%2C%20Chapinero%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1700000000000"
+              width="100%" height="260" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación DoctorLáser — Cra. 7 Bis #124-56, Chapinero, Bogotá"></iframe>
+          </div>
+          <a href="https://maps.google.com/?q=Cra.+7+Bis+%23124-56,+Chapinero,+Bogotá" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:.4rem;font-size:12px;color:var(--c-p600);margin-top:.5rem">
+            <i class="ti ti-external-link" style="font-size:14px"></i>
+            Abrir en Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="faq-grid">
+      <div class="fade-up" style="position:sticky;top:100px">
+        <div class="eyebrow section-header__eyebrow">Preguntas frecuentes</div>
+        <div class="section-divider"></div>
+        <h2 class="display-md" style="color:var(--c-n800);margin-bottom:1.25rem">
+          Antes de que<br><em style="color:var(--c-p600)">preguntes,</em><br>ya respondemos
+        </h2>
+        <p class="lead" style="margin-bottom:1.75rem">
+          Las preguntas más comunes que recibimos, respondidas con claridad y sin rodeos.
+        </p>
+        <a href="agenda.html#contacto" class="btn btn--teal">
+          <i class="ti ti-brand-whatsapp"></i>
+          Otra pregunta → WhatsApp
+        </a>
+      </div>
+      <div class="fade-up delay-1">
+        <div class="faq-item">
+          <div class="faq-question">¿El láser duele?<i class="ti ti-chevron-down"></i></div>
+          <div class="faq-answer">Mucho menos que los métodos convencionales. El láser diodo trabaja con una sensación de calor leve y controlada. En muchos procedimientos de tejidos blandos se trabaja con mínima anestesia o sin ella. En cirugías más complejas se usa anestesia local, pero el post-operatorio es notablemente más cómodo que con bisturí convencional.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿Cuánto cuesta la consulta de valoración?<i class="ti ti-chevron-down"></i></div>
+          <div class="faq-answer">La consulta de valoración tiene un costo que se informa al agendar. En ella recibes evaluación clínica completa, diagnóstico preciso y un plan de tratamiento por escrito con los costos reales de cada procedimiento. No hay letra pequeña.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿Cuánto cuesta el blanqueamiento con láser?<i class="ti ti-chevron-down"></i></div>
+          <div class="faq-answer">El costo exacto se determina en la valoración según el estado inicial del esmalte y el objetivo de tono del paciente. El blanqueamiento láser incluye 2 sesiones y tiene un costo mayor que los kits caseros, pero la diferencia está en la seguridad del proceso, el control clínico profesional y el resultado duradero con seguimiento a 36 meses. En la consulta recibes el precio exacto para tu caso.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿Cuántas sesiones necesito?<i class="ti ti-chevron-down"></i></div>
+          <div class="faq-answer">Depende del tratamiento. El blanqueamiento incluye 2 sesiones. La gingivoplastia y la frenilectomía también son habitualmente procedimientos de una sola sesión. La fotobiomodulación (PBM), la terapia para bruxismo y la desinfección de bolsas periodontales pueden requerir entre 3 y 6 sesiones según la severidad del caso. En la valoración te decimos exactamente cuántas sesiones necesita tu caso específico.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿Cuánto tiempo de recuperación?<i class="ti ti-chevron-down"></i></div>
+          <div class="faq-answer">Varía por procedimiento: el blanqueamiento no tiene recuperación — puedes retomar tu vida inmediatamente. La gingivoplastia y la frenilectomía tienen 24–48 horas de molestia leve. La desinfección de conductos o bolsas periodontales con láser tiene recuperación similar o más corta que el método convencional. En ningún caso necesitas días de cama ni analgésicos fuertes para la mayoría de procedimientos.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿El láser sirve para todos los casos?<i class="ti ti-chevron-down"></i></div>
+          <div class="faq-answer">No, y lo decimos directamente. El láser tiene indicaciones precisas. Para caries profundas, ortodoncia, prótesis o endodoncia compleja, los métodos convencionales siguen siendo el estándar. Pacientes con marcapasos, epilepsia fotosensible o ciertas condiciones de pigmentación requieren evaluación especial. En la consulta de valoración revisamos tu historial completo y te decimos con honestidad si tienes indicación láser — incluyendo cuando la respuesta es no.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿Qué es la fotobiomodulación (PBM) y para qué sirve?<i class="ti ti-chevron-down"></i></div>
+          <div class="faq-answer">Es la aplicación de láser de baja intensidad para estimular la regeneración celular, reducir inflamación y acelerar la cicatrización. No corta ni elimina tejido — activa los mecanismos naturales de reparación del organismo. Se usa en aftas, úlceras bucales, dolor de articulación temporomandibular (ATM), recuperación post-quirúrgica, periodoncia y como complemento en terapia para parálisis facial periférica. No duele y no requiere anestesia.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿Tienen estacionamiento o cómo se llega?<i class="ti ti-chevron-down"></i></div>
+          <div class="faq-answer">El consultorio está ubicado en Cra. 7 Bis #124-56, Chapinero, Bogotá. Hay parqueaderos cercanos en la zona y es accesible en transporte público. Escríbenos por WhatsApp y te enviamos las indicaciones de ruta detalladas.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿Puedo ir con acompañante a la valoración?<i class="ti ti-chevron-down"></i></div>
+          <div class="faq-answer">Sí, sin ningún problema. Muchos de nuestros pacientes — especialmente quienes sienten ansiedad ante el dentista — vienen con un familiar o amigo. La valoración es una conversación tranquila, no un procedimiento. No es necesario nada especial para asistir.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿Qué debo llevar a la primera consulta?<i class="ti ti-chevron-down"></i></div>
+          <div class="faq-answer">Idealmente: tu documento de identidad, una lista de medicamentos que tomes actualmente (especialmente anticoagulantes o inmunosupresores), y si tienes radiografías dentales recientes, tráelas — nos ahorran tiempo. Si tienes algún diagnóstico médico relevante (diabetes, hipertensión, enfermedades autoinmunes), también es útil que nos lo cuentes. No es obligatorio traer nada — podemos comenzar desde cero.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORA BREVE -->
+<section class="bg-teal-light">
+  <div class="container">
+    <div class="doctora-grid fade-up">
+      <div style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid var(--c-p200)">
+        <img src="Doctora-Luminadent.webp"
+          alt="Dra. Ana Vinasco — Especialista en odontología láser Bogotá"
+          style="width:100%;height:100%;object-fit:cover;object-position:center top">
+      </div>
+      <div>
+        <div class="eyebrow section-header__eyebrow" style="margin-bottom:.5rem">Tu especialista</div>
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:500;color:var(--c-n800);margin-bottom:.5rem">Dra. Ana Vinasco</h3>
+        <p style="font-size:14px;color:var(--c-n500);line-height:1.7;margin-bottom:1rem">
+          Odontóloga con <strong style="color:var(--c-n700)">25 años de experiencia clínica</strong>, de los cuales 3 años los ha dedicado a la práctica clínica con láser diodo. Con trayectoria dirigiendo clínicas y especialización en estética dental. Miembro de la Sociedad Internacional de Odontología Láser (SIOL).
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem">
+          <span style="font-size:12px;background:var(--c-p100);color:var(--c-p700);padding:4px 10px;border-radius:999px;border:1px solid var(--c-p200)">25 años · Odontóloga</span>
+          <span style="font-size:12px;background:var(--c-p100);color:var(--c-p700);padding:4px 10px;border-radius:999px;border:1px solid var(--c-p200)">3 años · Láser diodo</span>
+          <span style="font-size:12px;background:var(--c-p100);color:var(--c-p700);padding:4px 10px;border-radius:999px;border:1px solid var(--c-p200)">Miembro SIOL</span>
+          <span style="font-size:12px;background:var(--c-p100);color:var(--c-p700);padding:4px 10px;border-radius:999px;border:1px solid var(--c-p200)">Estética dental</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-section__inner fade-up">
+      <div class="cta-section__text">
+        <div class="eyebrow eyebrow--light" style="margin-bottom:.75rem">Un paso</div>
+        <h2 class="cta-section__title">El cambio empieza con<br><em>una sola consulta</em></h2>
+        <p class="cta-section__sub">Respondemos en el mismo día. Sin listas de espera largas.</p>
+      </div>
+      <div class="cta-section__actions">
+        <a href="https://wa.me/573015666729?text=Hola%2C%20quiero%20agendar%20una%20consulta%20de%20valoraci%C3%B3n%20en%20DoctorL%C3%A1ser%20%F0%9F%98%8A" target="_blank" rel="noopener" class="btn btn--wa btn--lg">
+          <i class="ti ti-brand-whatsapp"></i>
+          Agendar por WhatsApp
+        </a>
+        <a href="#contacto" class="btn btn--outline">Formulario de contacto</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="main-footer"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+function sendWhatsApp() {
+  const nombre = document.querySelector('input[placeholder="Tu nombre completo"]').value.trim();
+  const tel = document.querySelector('input[type="tel"]').value.trim();
+  const trat = document.querySelector('select').value;
+  const msg = document.querySelector('textarea').value.trim();
+  const check = document.getElementById('privacidad').checked;
+  if (!nombre || !tel) { alert('Por favor completa al menos tu nombre y teléfono.'); return; }
+  if (!check) { alert('Por favor acepta el tratamiento de datos para continuar.'); return; }
+  let text = `Hola Dra. Ana 👋\n\nMi nombre es *${nombre}*.\nTeléfono: ${tel}\n`;
+  if (trat) text += `Tratamiento de interés: *${trat}*\n`;
+  if (msg) text += `\nComentario: ${msg}\n`;
+  text += `\nMe gustaría agendar una consulta de valoración en DoctorLáser 😊`;
+  window.open(`https://wa.me/573015666729?text=${encodeURIComponent(text)}`, '_blank');
+}
+</script>
+</body>
+</html>
