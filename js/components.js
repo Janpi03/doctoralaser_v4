@@ -97,11 +97,11 @@ function isActive(href) {
           '<span class="footer-heading">Páginas</span>',
           '<nav class="footer-links" aria-label="Navegación del pie">',
             '<a href="/">Inicio</a>',
-            <a href="/beneficios/">Beneficios</a>
-            <a href="/tratamientos/">Tratamientos</a>
-            <a href="/evidencia/">Evidencia</a>
-            <a href="/casos/">Casos</a>
-            <a href="/agenda/">Agenda</a>
+            '<a href="/beneficios/">Beneficios</a>',
+            '<a href="/tratamientos/">Tratamientos</a>',
+            '<a href="/evidencia/">Evidencia</a>',
+            '<a href="/casos/">Casos</a>',
+            '<a href="/agenda/">Agenda</a>',
           '</nav>',
         '</div>',
         '<div>',
