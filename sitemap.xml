@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://doctoralaser.com/</loc>
-<priority>1.0</priority>
-</url>
+  <url>
+    <loc>https://www.doctoralaser.com/</loc>
+    <priority>1.0</priority>
+  </url>
 
-<url>
-<loc>https://doctoralaser.com/beneficios/</loc>
-</url>
+  <url>
+    <loc>https://www.doctoralaser.com/beneficios/</loc>
+  </url>
 
-<url>
-<loc>https://doctoralaser.com/tratamientos/</loc>
-</url>
+  <url>
+    <loc>https://www.doctoralaser.com/tratamientos/</loc>
+  </url>
 
-<url>
-<loc>https://doctoralaser.com/evidencia/</loc>
-</url>
+  <url>
+    <loc>https://www.doctoralaser.com/evidencia/</loc>
+  </url>
 
-<url>
-<loc>https://doctoralaser.com/casos/</loc>
-</url>
+  <url>
+    <loc>https://www.doctoralaser.com/casos/</loc>
+  </url>
 
-<url>
-<loc>https://doctoralaser.com/agenda/</loc>
-</url>
+  <url>
+    <loc>https://www.doctoralaser.com/agenda/</loc>
+  </url>
 
 </urlset>
