@@ -1,12 +1,11 @@
 (function () {
   'use strict';
 
-  var path = window.location.pathname.split('/').pop() || 'index.html';
+  var path = window.location.pathname;
 
-  function isActive(href) {
-    if (href === 'index.html' && (path === '' || path === 'index.html')) return true;
-    return path === href;
-  }
+function isActive(href) {
+  return path === href;
+}
 
   var navEl = document.getElementById('main-nav');
   if (navEl) {
