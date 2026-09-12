@@ -136,7 +136,7 @@ function isActive(href) {
       '</div>',
       '<div class="footer-copy">',
         '<span>© 2026 Doctora Láser. Todos los derechos reservados.</span>',
-        '<a href="privacidad.html">Política de privacidad</a>',
+        '<a href="/privacidad.html">Política de privacidad</a>',
       '</div>'
     ].join('');
   }
